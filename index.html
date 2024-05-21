@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>El comienzo</title>
+<script>
+function testWinDoc() {
+  doc= window.document;
+ 
+  if ( navName().indexOf("Netscape") == -1) {
+    alert("Navegador: " + navName() + ", " + " versión: " + navVersion() ); 
+  } else alert("Titulo de documento: " + doc.title + "\nPantalla: Altura: " + screen.availHeight + ", Largo: " + screen.availWidth);
+}
+
+function navName()
+{
+  return  navigator.appName;
+}
+
+function navVersion()
+{
+  return navigator.appVersion.substr(0,4)
+}
+
+// run this function when the document is loaded
+window.onload = function() {
+   heading = document.createElement("h1");
+   heading_text = document.createTextNode("Big Head!");
+   heading.appendChild(heading_text);
+   document.body.appendChild(heading);
+   document.getElementById("test").onclick = testWinDoc;
+}
+
+</script>
+
+</head>
+<body bgcolor="#00AABB" text="#000000">
+<h2>Funciona</h2>
+<button id="test" >test document property</button>
+</body>
+</html>
